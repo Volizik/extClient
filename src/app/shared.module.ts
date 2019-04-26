@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {MatOptionModule, MatSelectModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -14,7 +15,9 @@ import {MatTableModule} from '@angular/material/table';
         MatCardModule,
         MatButtonModule,
         MatInputModule,
-        MatTableModule
+        MatTableModule,
+        MatSelectModule,
+        MatOptionModule
     ],
     exports: [
         FlexLayoutModule,
@@ -23,7 +26,9 @@ import {MatTableModule} from '@angular/material/table';
         MatCardModule,
         MatButtonModule,
         MatInputModule,
-        MatTableModule
+        MatTableModule,
+        MatSelectModule,
+        MatOptionModule
     ]
 })
 export class SharedModule {

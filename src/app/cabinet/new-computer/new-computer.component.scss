@@ -1,0 +1,10 @@
+.new-computer {
+  &__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  &__control {
+    width: 100%;
+  }
+}

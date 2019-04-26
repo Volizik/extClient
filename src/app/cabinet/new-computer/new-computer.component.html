@@ -1,3 +1,74 @@
-<p>
-  new-computer works!
-</p>
+<div class="new-computer">
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <mat-card class="full-width">
+      <mat-card-header>
+        <mat-card-title>Создание Компьютера</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="new-computer__options">
+          <mat-form-field class="new-computer__control">
+            <mat-label>Разрешение экрана</mat-label>
+            <mat-select formControlName="screen">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.screen">{{ item.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Количество потоков (ядер)</mat-label>
+            <mat-select formControlName="hardwareConcurrency">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.hardwareConcurrency">{{ item.value }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Оперативная память</mat-label>
+            <mat-select formControlName="memory">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.memory">{{ item.value }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>GPU</mat-label>
+            <mat-select formControlName="webgl">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.webgl">{{ item.unmasked_renderer }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Languages</mat-label>
+            <mat-select multiple formControlName="languages">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.languages">{{ item.dialect }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Браузер</mat-label>
+            <mat-select formControlName="browsers">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.browsers">{{ item.name }} {{ item.version }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Операционная систеема</mat-label>
+            <mat-select formControlName="os">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.os">{{ item.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="form_field_wrap">
+            <h3>Proxy</h3>
+            <mat-form-field style="width: 25%" >
+              <input matInput placeholder="Protocol" formControlName="proxy_protocol">
+            </mat-form-field>
+            <mat-form-field style="width: 50%">
+              <input matInput placeholder="Proxy address" formControlName="proxy_address">
+            </mat-form-field>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="port" type="number" formControlName="proxy_port">
+            </mat-form-field>
+            <mat-form-field class="new-computer__control">
+              <input matInput placeholder="Login" formControlName="proxy_login">
+            </mat-form-field>
+            <mat-form-field class="new-computer__control">
+              <input matInput placeholder="Password" formControlName="proxy_password">
+            </mat-form-field>
+          </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Сохранить</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
