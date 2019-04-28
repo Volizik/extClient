@@ -33,6 +33,18 @@ export interface IDBScreen {
     height: number;
     label: string;
 }
+export interface IDBTimezone {
+    countries: string[];
+    name: string;
+    offsetStr: string;
+    utcOffset: number;
+}
+export interface IDBProxy {
+    countries: string[];
+    name: string;
+    offsetStr: string;
+    utcOffset: number;
+}
 export interface IComputersInfo {
     screen: IDBScreen[];
     os: IDBOS[];

@@ -13,12 +13,13 @@ export class NewComputerComponent implements OnInit {
 
     computersInfo: Observable<IComputersInfo>;
     form: FormGroup = new FormGroup({
+        name: new FormControl(''),
         screen: new FormControl(''),
         hardwareConcurrency: new FormControl(''),
         memory: new FormControl(''),
         webgl: new FormControl(''),
         languages: new FormControl(''),
-        browsers: new FormControl(''),
+        browser: new FormControl(''),
         os: new FormControl(''),
         proxy_protocol: new FormControl(''),
         proxy_address: new FormControl(''),

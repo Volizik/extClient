@@ -6,6 +6,9 @@
       </mat-card-header>
       <mat-card-content class="new-computer__options">
           <mat-form-field class="new-computer__control">
+              <input matInput placeholder="Имя компьютера" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="new-computer__control">
             <mat-label>Разрешение экрана</mat-label>
             <mat-select formControlName="screen">
               <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.screen">{{ item.label }}</mat-option>
@@ -37,7 +40,7 @@
           </mat-form-field>
           <mat-form-field class="new-computer__control">
             <mat-label>Браузер</mat-label>
-            <mat-select formControlName="browsers">
+            <mat-select formControlName="browser">
               <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.browsers">{{ item.name }} {{ item.version }}</mat-option>
             </mat-select>
           </mat-form-field>

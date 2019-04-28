@@ -18,4 +18,12 @@ export class CabinetService {
     saveComputerInfo(data) {
         return this.http.post(`${environment.url}/site/add_computer`, data);
     }
+
+    getComputersList() {
+        return this.http.get(`${environment.url}/site/computers_list`);
+    }
+
+    removeComputer(id) {
+        return this.http.post(`${environment.url}/site/del_computer`, {id});
+    }
 }

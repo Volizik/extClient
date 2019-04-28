@@ -4,30 +4,31 @@
             <mat-card-title>Мои компьютеры</mat-card-title>
         </mat-card-header>
         <mat-card-content class="my-computers__table">
-            <table mat-table [dataSource]="dataSource" class="full-width">
+            <table mat-table [dataSource]="computersList" class="full-width" *ngIf="computersList">
 
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                    <th mat-header-cell *matHeaderCellDef>№</th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
-
-                <!-- Name Column -->
                 <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef>Browser</th>
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
                     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                 </ng-container>
 
-                <!-- Weight Column -->
-                <ng-container matColumnDef="weight">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                <ng-container matColumnDef="browser">
+                    <th mat-header-cell *matHeaderCellDef>Browser</th>
+                    <td mat-cell *matCellDef="let element"> {{element.browser.name}} {{element.browser.version}} </td>
                 </ng-container>
 
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="symbol">
-                    <th mat-header-cell *matHeaderCellDef> Symbol</th>
-                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                <ng-container matColumnDef="screen">
+                    <th mat-header-cell *matHeaderCellDef>Screen</th>
+                    <td mat-cell *matCellDef="let element"> {{element.screen.label}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="os">
+                    <th mat-header-cell *matHeaderCellDef>OS</th>
+                    <td mat-cell *matCellDef="let element"> {{element.os.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" width="50px"><button mat-button (click)="removeComputer(element._id)">x</button></td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
