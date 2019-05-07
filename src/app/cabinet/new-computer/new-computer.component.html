@@ -50,6 +50,12 @@
               <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.os">{{ item.name }}</mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-form-field class="new-computer__control">
+            <mat-label>Do Not Track</mat-label>
+            <mat-select formControlName="os">
+              <mat-option [value]="item._id" *ngFor="let item of (computersInfo | async)?.doNotTrack">{{ item.value }}</mat-option>
+            </mat-select>
+          </mat-form-field>
           <div class="form_field_wrap">
             <h3>Proxy</h3>
             <mat-form-field style="width: 25%" >

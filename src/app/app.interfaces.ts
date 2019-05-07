@@ -45,6 +45,10 @@ export interface IDBProxy {
     offsetStr: string;
     utcOffset: number;
 }
+export interface IDBDoNotTrack {
+    _id: string;
+    value: string;
+}
 export interface IComputersInfo {
     screen: IDBScreen[];
     os: IDBOS[];
@@ -53,4 +57,5 @@ export interface IComputersInfo {
     hardwareConcurrency: IDBHardwareConcurrency[];
     memory: IDBMemory[];
     webgl: IDBWebGL[];
+    doNotTrack: IDBDoNotTrack[];
 }
